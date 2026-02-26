@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sage-400: #9CAEA9;
+  --color-sage-500: #7C8973;
+  --color-sage-600: #6A7762;
+  --color-sage-700: #586451;
+  --color-sage-800: #465240;
+  --color-oatmeal: #E8E3D9;
+  --color-cream: #F9F6F0;
+  --color-charcoal: #2C302E;
+  --color-charcoal-light: #4A504C;
+  
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+/* Soft UI / Neumorphism 2.0 Utilities */
+.soft-shadow {
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.03), -8px -8px 16px rgba(255, 255, 255, 0.6);
+}
+
+.soft-shadow-hover:hover {
+  box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.04), -12px -12px 20px rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.soft-card {
+  background: var(--color-cream);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
