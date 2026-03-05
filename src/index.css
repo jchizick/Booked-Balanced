@@ -1,18 +1,46 @@
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/Canela-RegularItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 
 @theme {
+  /* Brand Colors */
+  --color-sage-300: #B8C9B2;
   --color-sage-400: #9CAEA9;
   --color-sage-500: #7C8973;
   --color-sage-600: #6A7762;
   --color-sage-700: #586451;
   --color-sage-800: #465240;
+  --color-sage-900: #2E3829;
   --color-oatmeal: #E8E3D9;
+  --color-oatmeal-dark: #DDD7CA;
   --color-cream: #F9F6F0;
+  --color-cream-dark: #F3EEE6;
   --color-charcoal: #2C302E;
   --color-charcoal-light: #4A504C;
-  
-  --font-serif: "Cormorant Garamond", serif;
+  --color-charcoal-muted: #6B716D;
+
+  /* Typography */
+  --font-serif: "Canela", serif;
   --font-sans: "Inter", sans-serif;
+}
+
+/* ─── Base ─────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -21,24 +49,94 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
-/* Soft UI / Neumorphism 2.0 Utilities */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+
+/* ─── Focus Ring System ─────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-sage-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Soft UI / Neumorphism 2.0 ─────────── */
 .soft-shadow {
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.03), -8px -8px 16px rgba(255, 255, 255, 0.6);
+  box-shadow:
+    8px 8px 20px rgba(0, 0, 0, 0.05),
+    -6px -6px 16px rgba(255, 255, 255, 0.75);
+}
+
+.soft-shadow-lg {
+  box-shadow:
+    12px 12px 28px rgba(0, 0, 0, 0.07),
+    -8px -8px 20px rgba(255, 255, 255, 0.85);
 }
 
 .soft-shadow-hover:hover {
-  box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.04), -12px -12px 20px rgba(255, 255, 255, 0.8);
-  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    14px 14px 28px rgba(0, 0, 0, 0.07),
+    -10px -10px 22px rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
 }
 
 .soft-card {
   background: var(--color-cream);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ─── Sage Glow (for CTA buttons) ──────── */
+.sage-glow:hover {
+  box-shadow: 0 8px 24px rgba(106, 119, 98, 0.35);
+}
+
+/* ─── Section Divider Gradient ─────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(124, 137, 115, 0.25), transparent);
+}
+
+/* ─── Stat Counter Cards ────────────────── */
+.stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(249, 246, 240, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.04), -4px -4px 10px rgba(255, 255, 255, 0.7);
+}
+
+/* ─── Scroll Progress Bar Color ─────────── */
+.progress-bar-sage {
+  background: linear-gradient(to right, var(--color-sage-400), var(--color-sage-600));
+}
+
+/* ─── Reduced Motion ────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
